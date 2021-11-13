@@ -13,63 +13,64 @@ export const ROUTES: RouteInfo[] = [
     title: "Dashboard",
     rtlTitle: "لوحة القيادة",
     icon: "icon-chart-pie-36",
-    class: ""
+    class: "",
   },
   {
     path: "/icons",
     title: "Icons",
     rtlTitle: "الرموز",
     icon: "icon-atom",
-    class: ""
+    class: "",
   },
   {
     path: "/maps",
     title: "Maps",
     rtlTitle: "خرائط",
     icon: "icon-pin",
-    class: "" },
+    class: "",
+  },
   {
     path: "/notifications",
     title: "Notifications",
     rtlTitle: "إخطارات",
     icon: "icon-bell-55",
-    class: ""
+    class: "",
   },
 
   {
     path: "/user",
-    title: "User Profile",
+    title: "Login",
     rtlTitle: "ملف تعريفي للمستخدم",
     icon: "icon-single-02",
-    class: ""
+    class: "",
   },
   {
     path: "/tables",
-    title: "Table List",
+    title: "Productos",
     rtlTitle: "قائمة الجدول",
     icon: "icon-puzzle-10",
-    class: ""
+    class: "",
   },
   {
     path: "/typography",
     title: "Typography",
     rtlTitle: "طباعة",
     icon: "icon-align-center",
-    class: ""
+    class: "",
   },
   {
     path: "/rtl",
     title: "RTL Support",
     rtlTitle: "ار تي ال",
     icon: "icon-world",
-    class: ""
-  }
+    class: "",
+  },
 ];
 
 @Component({
   selector: "app-sidebar",
   templateUrl: "./sidebar.component.html",
-  styleUrls: ["./sidebar.component.css"]
+  styleUrls: ["./sidebar.component.css"],
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
@@ -77,7 +78,7 @@ export class SidebarComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.menuItems = ROUTES.filter((menuItem) => menuItem);
   }
   isMobileMenu() {
     if (window.innerWidth > 991) {
