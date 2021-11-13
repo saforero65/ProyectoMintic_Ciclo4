@@ -1,0 +1,232 @@
+<!--
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Simple Table</h4>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Name</th>
+                  <th>Country</th>
+                  <th>City</th>
+                  <th class=" text-center">Salary</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Dakota Rice</td>
+                  <td>Niger</td>
+                  <td>Oud-Turnhout</td>
+                  <td class=" text-center">$36,738</td>
+                </tr>
+                <tr>
+                  <td>Minerva Hooper</td>
+                  <td>CuraÃ§ao</td>
+                  <td>Sinaai-Waas</td>
+                  <td class=" text-center">$23,789</td>
+                </tr>
+                <tr>
+                  <td>Sage Rodriguez</td>
+                  <td>Netherlands</td>
+                  <td>Baileux</td>
+                  <td class=" text-center">$56,142</td>
+                </tr>
+                <tr>
+                  <td>Philip Chaney</td>
+                  <td>Korea, South</td>
+                  <td>Overland Park</td>
+                  <td class=" text-center">$38,735</td>
+                </tr>
+                <tr>
+                  <td>Doris Greene</td>
+                  <td>Malawi</td>
+                  <td>Feldkirchen in KÃ¤rnten</td>
+                  <td class=" text-center">$63,542</td>
+                </tr>
+                <tr>
+                  <td>Mason Porter</td>
+                  <td>Chile</td>
+                  <td>Gloucester</td>
+                  <td class=" text-center">$78,615</td>
+                </tr>
+                <tr>
+                  <td>Jon Porter</td>
+                  <td>Portugal</td>
+                  <td>Gloucester</td>
+                  <td class=" text-center">$98,615</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=" col-md-12">
+      <div class=" card card-plain">
+        <div class=" card-header">
+          <h4 class=" card-title">Table on Plain Background</h4>
+          <p class=" category">Here is a subtitle for this table</p>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Name</th>
+                  <th>Country</th>
+                  <th>City</th>
+                  <th class=" text-center">Salary</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Dakota Rice</td>
+                  <td>Niger</td>
+                  <td>Oud-Turnhout</td>
+                  <td class=" text-center">$36,738</td>
+                </tr>
+                <tr>
+                  <td>Minerva Hooper</td>
+                  <td>CuraÃ§ao</td>
+                  <td>Sinaai-Waas</td>
+                  <td class=" text-center">$23,789</td>
+                </tr>
+                <tr>
+                  <td>Sage Rodriguez</td>
+                  <td>Netherlands</td>
+                  <td>Baileux</td>
+                  <td class=" text-center">$56,142</td>
+                </tr>
+                <tr>
+                  <td>Philip Chaney</td>
+                  <td>Korea, South</td>
+                  <td>Overland Park</td>
+                  <td class=" text-center">$38,735</td>
+                </tr>
+                <tr>
+                  <td>Doris Greene</td>
+                  <td>Malawi</td>
+                  <td>Feldkirchen in KÃ¤rnten</td>
+                  <td class=" text-center">$63,542</td>
+                </tr>
+                <tr>
+                  <td>Mason Porter</td>
+                  <td>Chile</td>
+                  <td>Gloucester</td>
+                  <td class=" text-center">$78,615</td>
+                </tr>
+                <tr>
+                  <td>Jon Porter</td>
+                  <td>Portugal</td>
+                  <td>Gloucester</td>
+                  <td class=" text-center">$98,615</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-8">
+      <div class=" card">
+        <div class=" card-header">
+          <h2 class=" title">Productos</h2>
+        </div>
+        <div class=" card-body">
+          <form>
+
+            <div class=" col-md-8 px-md-1">
+              <div class=" form">
+                <label> Nombre del Archivo </label>
+                <input class="form-control" accept=".csv" id="csv" type="file" (change)="onChange($event)"
+                  name="myfile">
+              </div>
+            </div>
+
+            <div class=" col-md-8 px-md-1">
+              <div class=" form-group form-buttom">
+
+                <input class=" btn btn-fill btn-danger" type="submit" value="Aceptar" (click)="onUpload()" />
+                <input class=" btn btn-fill btn-danger" type="reset" value="Reset" />
+              </div>
+
+            </div>
+          </form>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .row {
+    width: 100%;
+    justify-content: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-buttom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .title {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .ingreso {
+    display: flex;
+    justify-content: center;
+    color: greenyellow;
+  }
+
+  @media only screen and (maxn-width: 480px) {
+    .content {
+      display: block;
+    }
+
+    .row {
+      display: block;
+    }
+
+    form {
+      display: block;
+    }
+
+    .form-buttom {
+      display: block;
+    }
+
+  }
+</style>
