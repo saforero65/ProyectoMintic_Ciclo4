@@ -23,7 +23,7 @@ export class FileUploadService {
         let lines = reader.result as string;
 
         let separados = lines.split("\n");
-
+        console.log(separados.length);
         for (let lineaactual of separados) {
           lineaactual.replace(";", ",");
           let columnas = lineaactual.split(",", 6);

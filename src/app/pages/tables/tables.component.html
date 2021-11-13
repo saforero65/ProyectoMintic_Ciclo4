@@ -141,24 +141,26 @@
     <div class=" col-md-8">
       <div class=" card">
         <div class=" card-header">
-          <h2 class=" title">Productos</h2>
+          <h2 class=" title">Carga deProductos</h2>
         </div>
         <div class=" card-body">
           <form>
 
             <div class=" col-md-8 px-md-1">
               <div class=" form">
-                <label> Nombre del Archivo </label>
-                <input class="form-control" accept=".csv" id="csv" type="file" (change)="onChange($event)"
-                  name="myfile">
+
+                <input #myInput class="" accept=".csv" id="csv" type="file" (change)="onChange($event)" name="myfile">
+
               </div>
+
             </div>
 
             <div class=" col-md-8 px-md-1">
               <div class=" form-group form-buttom">
 
-                <input class=" btn btn-fill btn-danger" type="submit" value="Aceptar" (click)="onUpload()" />
-                <input class=" btn btn-fill btn-danger" type="reset" value="Reset" />
+                <input [disabled]="isDisabled" class=" btn btn-fill btn-danger" type="submit" value="Subir"
+                  (click)="onUpload()" />
+                <input class=" btn btn-fill btn-danger" type="reset" value="Reset" (click)="reset()" />
               </div>
 
             </div>
@@ -175,6 +177,36 @@
 </div>
 
 <style>
+  label {
+    font-weight: bold;
+  }
+
+  ::-webkit-file-upload-button {
+    background: #419ef9;
+    cursor: pointer !important;
+    background-size: 210% 210%;
+    background-position: top right;
+
+    transition: all 0.15s ease;
+    box-shadow: none;
+    color: #ffffff;
+    border: none;
+    border-width: 2px;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    margin: 4px 1px;
+    border-radius: 0.4285rem;
+    padding: .7rem;
+    margin-right: 1rem;
+  }
+
+  #csv {
+    cursor: pointer !important;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
   .content {
     display: flex;
     justify-content: center;
