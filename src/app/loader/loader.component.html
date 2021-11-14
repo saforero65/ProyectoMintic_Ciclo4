@@ -1,23 +1,18 @@
-<!--The content below is only a placeholder and can be replaced.-->
-
-<div *ngIf="ingresar==false" class="todo">
+<div class="todo">
   <div class="container">
     <h2 class="title">Bienvenido a TiendaGenerica</h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At modi dolore molestiae commodi neque fuga dolorem eius
       asperiores quo ipsa ab repudiandae illum esse, porro maiores exercitationem, tenetur ut voluptatum!</p>
-    <button class="btn btn-success" (click)="ingresar=true">Ingresar</button>
+    <button class="btn btn-success">Ingresar</button>
   </div>
 </div>
-
-<router-outlet *ngIf="ingresar==true"></router-outlet>
 <style>
   .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
-    text-align: center;
+
   }
 
   .todo {

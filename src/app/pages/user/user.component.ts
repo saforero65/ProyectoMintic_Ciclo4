@@ -64,7 +64,7 @@ export class UserComponent implements OnInit {
           }
         );
         this.correcto = -1;
-        this.router.navigate(["/tables"]);
+        this.router.navigate(["/productos"]);
 
         break;
     }

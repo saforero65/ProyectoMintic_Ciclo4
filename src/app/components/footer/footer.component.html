@@ -23,10 +23,50 @@
 
     </ul>
 
+
+    <div class="colors">
+
+      <a class=" badge filter badge-danger" [ngClass]="{'active':sidebarColor==='red'}"
+        (click)="changeSidebarColor('red')">rojo
+      </a>
+      <a class=" badge filter badge-primary" [ngClass]="{'active':sidebarColor==='primary'}"
+        (click)="changeSidebarColor('primary')">primary
+      </a>
+      <a class=" badge filter badge-info" [ngClass]="{'active':sidebarColor==='blue'}"
+        (click)="changeSidebarColor('blue')"> azul</a>
+      <a class=" badge filter badge-success" [ngClass]="{'active':sidebarColor==='green'}"
+        (click)="changeSidebarColor('green')">verde
+      </a>
+    </div>
     <div class=" copyright">
       &copy; {{ test | date: "yyyy" }} hecho por
       <b>Equipo 7</b>
       MinTic2022.
     </div>
   </div>
+
 </footer>
+<style>
+  .container-fluid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    margin: 0 .1rem;
+  }
+
+  .colors {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+
+  a:not([href]):not([tabindex]) {
+    color: #fff;
+    cursor: pointer;
+  }
+</style>

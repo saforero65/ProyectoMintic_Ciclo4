@@ -8,3 +8,19 @@
     <app-footer></app-footer>
   </div>
 </div>
+<div class=" fixed-plugin">
+  <div class=" show-dropdown" ngbDropdown>
+
+    <a *ngIf="dark==true" data-toggle="dropdown" (click)="changeDashboardColor('white-content')">
+      <i class="fas fa-sun fa-2x"></i>
+    </a>
+    <a *ngIf="dark==false" data-toggle="dropdown" (click)="changeDashboardColor('black-content')">
+      <i class="fas fa-moon fa-2x"></i>
+    </a>
+  </div>
+</div>
+<style>
+  .show-dropdown {
+    padding: .7rem 0;
+  }
+</style>
