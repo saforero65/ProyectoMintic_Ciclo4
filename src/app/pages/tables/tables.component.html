@@ -1,152 +1,41 @@
-<!--
-<div class=" content">
-  <div class=" row">
-    <div class=" col-md-12">
-      <div class=" card">
-        <div class=" card-header">
-          <h4 class=" card-title">Simple Table</h4>
-        </div>
-        <div class=" card-body">
-          <div class=" table-responsive">
-            <table class=" table tablesorter" id="">
-              <thead class=" text-primary">
-                <tr>
-                  <th>Name</th>
-                  <th>Country</th>
-                  <th>City</th>
-                  <th class=" text-center">Salary</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Dakota Rice</td>
-                  <td>Niger</td>
-                  <td>Oud-Turnhout</td>
-                  <td class=" text-center">$36,738</td>
-                </tr>
-                <tr>
-                  <td>Minerva Hooper</td>
-                  <td>CuraÃ§ao</td>
-                  <td>Sinaai-Waas</td>
-                  <td class=" text-center">$23,789</td>
-                </tr>
-                <tr>
-                  <td>Sage Rodriguez</td>
-                  <td>Netherlands</td>
-                  <td>Baileux</td>
-                  <td class=" text-center">$56,142</td>
-                </tr>
-                <tr>
-                  <td>Philip Chaney</td>
-                  <td>Korea, South</td>
-                  <td>Overland Park</td>
-                  <td class=" text-center">$38,735</td>
-                </tr>
-                <tr>
-                  <td>Doris Greene</td>
-                  <td>Malawi</td>
-                  <td>Feldkirchen in KÃ¤rnten</td>
-                  <td class=" text-center">$63,542</td>
-                </tr>
-                <tr>
-                  <td>Mason Porter</td>
-                  <td>Chile</td>
-                  <td>Gloucester</td>
-                  <td class=" text-center">$78,615</td>
-                </tr>
-                <tr>
-                  <td>Jon Porter</td>
-                  <td>Portugal</td>
-                  <td>Gloucester</td>
-                  <td class=" text-center">$98,615</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class=" col-md-12">
-      <div class=" card card-plain">
-        <div class=" card-header">
-          <h4 class=" card-title">Table on Plain Background</h4>
-          <p class=" category">Here is a subtitle for this table</p>
-        </div>
-        <div class=" card-body">
-          <div class=" table-responsive">
-            <table class=" table tablesorter" id="">
-              <thead class=" text-primary">
-                <tr>
-                  <th>Name</th>
-                  <th>Country</th>
-                  <th>City</th>
-                  <th class=" text-center">Salary</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Dakota Rice</td>
-                  <td>Niger</td>
-                  <td>Oud-Turnhout</td>
-                  <td class=" text-center">$36,738</td>
-                </tr>
-                <tr>
-                  <td>Minerva Hooper</td>
-                  <td>CuraÃ§ao</td>
-                  <td>Sinaai-Waas</td>
-                  <td class=" text-center">$23,789</td>
-                </tr>
-                <tr>
-                  <td>Sage Rodriguez</td>
-                  <td>Netherlands</td>
-                  <td>Baileux</td>
-                  <td class=" text-center">$56,142</td>
-                </tr>
-                <tr>
-                  <td>Philip Chaney</td>
-                  <td>Korea, South</td>
-                  <td>Overland Park</td>
-                  <td class=" text-center">$38,735</td>
-                </tr>
-                <tr>
-                  <td>Doris Greene</td>
-                  <td>Malawi</td>
-                  <td>Feldkirchen in KÃ¤rnten</td>
-                  <td class=" text-center">$63,542</td>
-                </tr>
-                <tr>
-                  <td>Mason Porter</td>
-                  <td>Chile</td>
-                  <td>Gloucester</td>
-                  <td class=" text-center">$78,615</td>
-                </tr>
-                <tr>
-                  <td>Jon Porter</td>
-                  <td>Portugal</td>
-                  <td>Gloucester</td>
-                  <td class=" text-center">$98,615</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
 <div class=" content">
   <div class=" row">
     <div class=" col-md-8">
+      <div class="form-group form-buttom botnes">
+        <button class=" btn btn-fill" (click)="cargacsv=true"> Carga por CSV</button>
+        <button class=" btn btn-fill" (click)="cargacsv=false"> Carga Individual</button>
+      </div>
       <div class=" card">
         <div class=" card-header">
           <h2 class=" title">Carga de Productos</h2>
         </div>
         <div class=" card-body">
           <form>
+            <div *ngIf="cargacsv==false" class=" form-group">
+              <label> Codigo Producto
+              </label>
+              <input class=" form-control" type="text" [(ngModel)]="codigoproducto">
+              <label> IVA Comra
+              </label>
+              <input class=" form-control" type="text" [(ngModel)]="ivacompra">
+              <label> Nit Proveedor
+              </label>
+              <input class=" form-control" type="text" [(ngModel)]="nitproveedor">
+              <label> Nombre Producto
+              </label>
+              <input class=" form-control" type="text" [(ngModel)]="nombreproducto">
+              <label>Precio Compra
+              </label>
+              <input class=" form-control" type="text" [(ngModel)]="preciocompra">
+              <label>Precio Venta</label>
+              <input class=" form-control" type="text" [(ngModel)]="precioventa">
 
-            <div class=" col-md-8 px-md-1">
+              <button class=" btn btn-fill btn-danger" (click)="postData()">
+                Enviar datos
+              </button> {{codigorespuesta}}
+
+            </div>
+            <div *ngIf="cargacsv==true" class=" col-md-8 px-md-1">
               <div class=" form">
 
                 <input #myInput class="" accept=".csv" id="csv" type="file" (change)="onChange($event)" name="myfile">
@@ -156,11 +45,11 @@
             </div>
 
             <div class=" col-md-8 px-md-1">
-              <div class=" form-group form-buttom">
+              <div *ngIf="cargacsv==true" class=" form-group form-buttom">
 
-                <input [disabled]="isDisabled" class=" btn btn-fill " type="submit" value="Subir"
+                <input [disabled]="isDisabled" class=" btn btn-fill btn-danger" type="submit" value="Subir"
                   (click)="onUpload()" />
-                <input class=" btn btn-fill " type="reset" value="Reset" (click)="reset()" />
+                <input class=" btn btn-fill btn-danger" type="reset" value="Reset" (click)="reset()" />
               </div>
 
             </div>
@@ -243,6 +132,10 @@
     color: greenyellow;
   }
 
+  .botnes {
+    margin-bottom: 1.5rem !important;
+  }
+
   @media only screen and (maxn-width: 480px) {
     .content {
       display: block;
@@ -258,7 +151,10 @@
 
     .form-buttom {
       display: block;
+
     }
+
+
 
   }
 </style>

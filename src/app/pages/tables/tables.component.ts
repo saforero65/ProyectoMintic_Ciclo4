@@ -16,6 +16,60 @@ export class TablesComponent implements OnInit {
     private objetohttp: HttpClient,
     private fileUploadService: FileUploadService
   ) {}
+  cargacsv: boolean = true;
+  codigoproducto!: number;
+  ivacompra!: number;
+  nitproveedor!: number;
+  nombreproducto!: string;
+  preciocompra!: number;
+  precioventa!: number;
+
+  codigorespuesta!: number;
+
+  postData() {
+    this.objetohttp
+      .post<any>(
+        "http://localhost:8080/api/productos",
+        {
+          codigoproducto: this.codigoproducto,
+          ivacompra: this.ivacompra,
+          nitproveedor: this.nitproveedor,
+          nombreproducto: this.nombreproducto,
+          preciocompra: this.preciocompra,
+          precioventa: this.precioventa,
+        },
+        { observe: "response" }
+      )
+      .subscribe((response) => {
+        this.codigorespuesta = response.status;
+        if (this.codigorespuesta == 201) {
+          this.toastr.info(
+            '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>CORRECTO!!</b> el Producto fue cargado correctamente ',
+            "",
+            {
+              timeOut: 5000,
+              closeButton: true,
+              enableHtml: true,
+              toastClass: "alert alert-success alert-with-icon",
+              positionClass: "toast-" + "top" + "-" + "center",
+            }
+          );
+        } else {
+          this.toastr.info(
+            '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>ERROR!!</b> el Producto no fue cargado ',
+            "",
+            {
+              timeOut: 5000,
+              closeButton: true,
+              enableHtml: true,
+              toastClass: "alert alert-danger alert-with-icon",
+              positionClass: "toast-" + "top" + "-" + "center",
+            }
+          );
+        }
+      });
+  }
+
   ngOnInit() {}
   codigoRespuesta: number = 0;
   res2: any;
