@@ -96,20 +96,8 @@ export class TablesComponent implements OnInit {
     if (this.file.type.includes("csv")) {
       console.log(this.file.type);
       this.resultados = await this.fileUploadService.upload(this.file);
-      console.log(this.resultados);
       console.log("enviado");
 
-      this.toastr.info(
-        '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>CORRECTO!!</b> el archivo fue cargado correctamente ',
-        "",
-        {
-          timeOut: 5000,
-          closeButton: true,
-          enableHtml: true,
-          toastClass: "alert alert-success alert-with-icon",
-          positionClass: "toast-" + "top" + "-" + "center",
-        }
-      );
       this.reset();
     } else {
       console.log("formato no soportado");
