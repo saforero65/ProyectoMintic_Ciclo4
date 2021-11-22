@@ -16,7 +16,7 @@
 
       <li class=" nav-item">
         <a class=" nav-link" href="https://github.com/alfonsohortua">
-          <i class="fab fa-github"></i> Alfonso Hortua Jimenez
+          <i class="fab fa-github"></i> Alfonso Hortua Jimenez Mintic
          </a>
       </li>
 
@@ -33,19 +33,24 @@
     <div class="colors">
 
       <a class=" badge filter badge-danger" [ngClass]="{'active':sidebarColor==='red'}"
-        (click)="changeSidebarColor('red')">rojo
+        (click)="changeSidebarColor('red')">red
       </a>
+
       <a class=" badge filter badge-primary" [ngClass]="{'active':sidebarColor==='primary'}"
-        (click)="changeSidebarColor('primary')">primary
+        (click)="changeSidebarColor('primary')">pink
       </a>
+
       <a class=" badge filter badge-info" [ngClass]="{'active':sidebarColor==='blue'}"
-        (click)="changeSidebarColor('blue')"> azul</a>
-      <a class=" badge filter badge-success" [ngClass]="{'active':sidebarColor==='green'}"
-        (click)="changeSidebarColor('green')">verde
+        (click)="changeSidebarColor('blue')"> azul
       </a>
+
+      <a class=" badge filter badge-success" [ngClass]="{'active':sidebarColor==='green'}"
+        (click)="changeSidebarColor('green')">green
+      </a>
+
     </div>
     <div class=" copyright">
-      &copy; {{ test | date: "yyyy" }} hecho por
+      &copy; {{ test | date: "yyyy" }} Made in Universidad El Bosque
       <b>Equipo 7</b>
       MinTic2022.
     </div>
