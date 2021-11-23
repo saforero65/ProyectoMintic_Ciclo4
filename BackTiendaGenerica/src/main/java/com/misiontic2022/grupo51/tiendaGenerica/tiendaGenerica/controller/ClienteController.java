@@ -1,4 +1,4 @@
-package com.misiontic2022.grupo51.tiendagenerica.tiendagenerica.controller;
+package com.misiontic2022.grupo51.tiendaGenerica.tiendaGenerica.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,13 +18,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.misiontic2022.grupo51.tiendagenerica.tiendagenerica.model.Cliente;
-import com.misiontic2022.grupo51.tiendagenerica.tiendagenerica.repository.ClienteRepository;
+import com.misiontic2022.grupo51.tiendaGenerica.tiendaGenerica.model.Cliente;
+import com.misiontic2022.grupo51.tiendaGenerica.tiendaGenerica.repository.ClienteRepository;
 
 
 
 
 @CrossOrigin(origins = "*")
+
 //@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api")

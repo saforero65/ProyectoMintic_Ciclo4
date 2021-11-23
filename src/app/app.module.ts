@@ -14,6 +14,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { LoaderComponent } from "./loader/loader.component";
+import { ClientesComponent } from "./pages/clientes/clientes.component";
+import { TablasClientesComponent } from "./pages/tablas-clientes/tablas-clientes.component";
 
 @NgModule({
   imports: [
@@ -31,6 +33,8 @@ import { LoaderComponent } from "./loader/loader.component";
     AdminLayoutComponent,
     AuthLayoutComponent,
     LoaderComponent,
+    ClientesComponent,
+    TablasClientesComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

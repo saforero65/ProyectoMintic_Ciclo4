@@ -1,4 +1,4 @@
-package com.misiontic2022.grupo51.tiendagenerica.tiendagenerica.model;
+package com.misiontic2022.grupo51.tiendaGenerica.tiendaGenerica.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
