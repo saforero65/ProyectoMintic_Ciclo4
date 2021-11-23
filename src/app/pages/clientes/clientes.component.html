@@ -2,225 +2,329 @@
   <div class=" row">
     <div class=" col-md-12">
       <div class=" card">
-        <div class=" card-header mb-5">
+        <div class=" card-header mb-8">
           <h1 class=" card-title">Clientes</h1>
         </div>
         <div class=" card-body">
-          <div class=" col-md-8 px-md-1">
-            <div class=" form-group form-buttom">
-              <input class=" btn btn-fill btn-outline-light" value="Consultar" (click)="crud=1" />
-              <input class=" btn btn-fill btn-outline-light" value="Crear" (click)="crud=2" />
-              <input class=" btn btn-fill btn-outline-light" value="Actualizar" (click)="crud=3" />
-              <input class=" btn btn-fill btn-outline-light" value="Borrar" (click)="crud=4" />
+
+          <div class=" col-md-12">
+            <div class="form-group form-buttom botnes ">
+
+              <input class=" btn btn-fill" value="Consultar" (click)="crud=1" />
+              <input class=" btn btn-fill" value="Crear" (click)="crud=2" />
+              <input class=" btn btn-fill" value="Actualizar" (click)="crud=3" />
+              <input class=" btn btn-fill" value="Borrar" (click)="crud=4" />
 
 
-            </div>
+            </div><br>
           </div>
 
+          <!-- Consultar -->
           <div *ngIf="crud==1">
-            <div class="row mb-4">
+            <div class="col mb-4">
               <h2>CONSULTAR</h2>
               <!-- Cédula -->
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" id="cedula" class="form-control" [(ngModel)]="cedula" />
-                  <label class="form-label" for="cedula">Cédula</label>
+              <div class="form-outline ">
+                <input type="text" id="cedula" class="form-control " [(ngModel)]="cedula" />
+                <label class="form-label" for="cedula">Cédula</label>
+              </div>
+              <div>
+                <input type="submit" class="btn btn-fill" value="Consultar" (click)="getData()">
+              </div><br>
+
+
+              <div class="row mb-4">
+                <!-- Nombre completo -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" class="form-control" [(ngModel)]="nombrecompleto" />
+                    <label class="form-label" for="nombrecompleto">Nombre Completo</label>
+                  </div>
+                </div>
+                <!-- Teléfono -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" class="form-control" [(ngModel)]="telefono" />
+                    <label class="form-label" for="telefono">Teléfono</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <!-- Dirección -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" class="form-control" [(ngModel)]="direccion" />
+                    <label class="form-label" for="direccion">Dirección</label>
+                  </div>
+                </div>
+                <!-- Email -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" class="form-control" [(ngModel)]="correo" />
+                    <label class="form-label" for="email">Correo Electrónico</label>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <input type="submit" value="Consultar" (click)="getData()">
-
-            <table class="table table-striped table-hover">
-              <thead>
-                <tr>
-                  <th>Cedula</th>
-                  <th>Nombre Completo</th>
-                  <th>Dirección</th>
-                  <th>Telefono</th>
-                  <th>Correo</th>
-
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let cliente of contenido">
-                  <td> {{cliente.cedula}} </td>
-                  <td>{{cliente.nombrecompleto}}</td>
-                  <td>{{cliente.direccion}}</td>
-                  <td>{{cliente.telefono}}</td>
-                  <td>{{cliente.correo}}</td>
-
-                </tr>
-              </tbody>
-            </table>
-
-
           </div>
+
+
+
+
+          <!-- CREAR -->
           <div *ngIf="crud==2">
-            <div class="row mb-4">
+            <div class="col mb-4">
               <h2>CREAR</h2>
               <!-- Cédula -->
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" id="cedula" class="form-control" [(ngModel)]="cedula" />
-                  <label class="form-label" for="cedula">Cédula</label>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" id="cedula" class="form-control" [(ngModel)]="cedula" />
+                    <label class="form-label" for="cedula">Cédula</label>
+                  </div>
+                </div>
+                <!-- Teléfono -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" id="telefono" class="form-control" [(ngModel)]="telefono" />
+                    <label class="form-label" for="telefono">Teléfono</label>
+                  </div>
                 </div>
               </div>
-              <!-- Teléfono -->
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" id="telefono" class="form-control" [(ngModel)]="telefono" />
-                  <label class="form-label" for="telefono">Teléfono</label>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="row mb-4">
               <!-- Nombre completo -->
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" id="nombrecompleto" class="form-control" [(ngModel)]="nombrecompleto" />
-                  <label class="form-label" for="nombrecompleto">Nombre Completo</label>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" id="nombrecompleto" class="form-control" [(ngModel)]="nombrecompleto" />
+                    <label class="form-label" for="nombrecompleto">Nombre Completo</label>
+                  </div>
+                </div>
+                <!-- Email -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" id="email" class="form-control" [(ngModel)]="correo" />
+                    <label class="form-label" for="email">Correo Electrónico</label>
+                  </div>
                 </div>
               </div>
-              <!-- Email -->
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" id="email" class="form-control" [(ngModel)]="correo" />
-                  <label class="form-label" for="email">Correo Electrónico</label>
+              <div class="row mb-4">
+                <!-- Dirección -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" id="direccion" class="form-control" [(ngModel)]="direccion" />
+                    <label class="form-label" for="direccion">Dirección</label>
+                  </div>
                 </div>
               </div>
+              <input type="submit" class="btn btn-fill" value="Crear" (click)="postData()">
             </div>
-            <div class="row mb-4">
-              <!-- Dirección -->
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" id="direccion" class="form-control" [(ngModel)]="direccion" />
-                  <label class="form-label" for="direccion">Dirección</label>
-                </div>
-              </div>
-            </div>
-            <input type="submit" value="Crear" (click)="postData()">
-
-
-
-
-
           </div>
+
+
+
+          <!-- ACTUALIZAR -->
           <div *ngIf="crud==3">
-            <div class="row mb-4">
+            <div class="col mb-4">
               <h2>ACTUALIZAR</h2>
               <!-- Cédula -->
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" id="cedula" class="form-control" [(ngModel)]="cedula" />
-                  <label class="form-label" for="cedula">Cédula</label>
-                </div>
+              <div class="form-outline">
+                <input type="text" id="cedula" class="form-control" [(ngModel)]="cedula" />
+                <label class="form-label" for="cedula">Cédula</label>
               </div>
               <div>
-                <input type="submit" value="Consultar" (click)="getData()">
+                <input type="submit" class="btn btn-fill" value="Consultar" (click)="getData()">
+              </div><br>
+
+
+              <div class="row mb-4">
+                <!-- Nombre completo -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" class="form-control" [(ngModel)]="nombrecompleto" />
+                    <label class="form-label" for="nombrecompleto">Nombre Completo</label>
+                  </div>
+                </div>
+                <!-- Teléfono -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" class="form-control" [(ngModel)]="telefono" />
+                    <label class="form-label" for="telefono">Teléfono</label>
+                  </div>
+                </div>
               </div>
 
-
-
-
-
-              <div class="inputs__actualizar">
-                <label>Cedula
-
-                  <input class="input__consulta input-group-text" type="text" [(ngModel)]="cedula">
-                </label>
-
-                <label>Nombre Completo
-                  <input class="input__consulta input-group-text" type="text" [(ngModel)]="nombrecompleto">
-                </label>
-                <label>Dirección
-
-                  <input class="input__consulta input-group-text" type="text" [(ngModel)]="direccion">
-                </label>
-                <input class="input__consulta input-group-text" type="text" [(ngModel)]="telefono">
-                <label>Telefono
-
-                </label>
-                <label>Correo
-                  <input class="input__consulta input-group-text" type="text" [(ngModel)]="correo">
-
-                </label>
+              <div class="row mb-4">
+                <!-- Dirección -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" class="form-control" [(ngModel)]="direccion" />
+                    <label class="form-label" for="direccion">Dirección</label>
+                  </div>
+                </div>
+                <!-- Email -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" class="form-control" [(ngModel)]="correo" />
+                    <label class="form-label" for="email">Correo Electrónico</label>
+                  </div>
+                </div>
               </div>
 
-
+              <input type="submit" class="btn btn-fill" value="Actualizar" (click)="putData()">
             </div>
-
-
-            <input type="submit" value="Actualizar" (click)="putData()">
-
-
           </div>
+
+
+
+
           <div *ngIf="crud==4">
-            <div class="row mb-4">
+            <div class="col mb-4">
               <h2>BORRAR</h2>
+              <div class="form-outline">
+                <input type="text" id="cedula" class="form-control" [(ngModel)]="cedula" />
+                <label class="form-label" for="cedula">Cédula</label>
+                <div>
+                  <input type="submit" class="btn btn-fill" value="Consultar" (click)="getData()">
+                </div><br>
+              </div>
 
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" id="cedula" class="form-control" [(ngModel)]="cedula" />
-                  <label class="form-label" for="cedula">Cédula</label>
+
+              <div class="row mb-4">
+                <!-- Nombre completo -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" class="form-control" [(ngModel)]="nombrecompleto" />
+                    <label class="form-label" for="nombrecompleto">Nombre Completo</label>
+                  </div>
+                </div>
+                <!-- Teléfono -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" class="form-control" [(ngModel)]="telefono" />
+                    <label class="form-label" for="telefono">Teléfono</label>
+                  </div>
+                </div>
+                <div class="row mb-4"></div>
+                <!-- Dirección -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" class="form-control" [(ngModel)]="direccion" />
+                    <label class="form-label" for="email">Dirección</label>
+                  </div>
+                </div>
+                <!-- Correo -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" class="form-control" [(ngModel)]="correo" />
+                    <label class="form-label" for="email">Correo Electrónico</label>
+                  </div>
                 </div>
               </div>
               <div>
-                <input type="submit" value="Consultar" (click)="getData()">
+                <input type="submit" class="btn btn-fill" value="Eliminar Cliente" (click)="deleteData()">
               </div>
             </div>
-            <table class="table table-striped table-hover">
-              <thead>
-                <tr>
-                  <th>Cedula</th>
-                  <th>Nombre Completo</th>
-                  <th>Dirección</th>
-                  <th>Telefono</th>
-                  <th>Correo</th>
-
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let cliente of contenido">
-                  <td> {{cliente.cedula}} </td>
-                  <td>{{cliente.nombrecompleto}}</td>
-                  <td>{{cliente.direccion}}</td>
-                  <td>{{cliente.telefono}}</td>
-                  <td>{{cliente.correo}}</td>
-
-                </tr>
-              </tbody>
-            </table>
-            <div>
-              <input type="submit" value="Consultar" (click)="deleteData()">
-            </div>
           </div>
-
-
-
-
-
-
-
-
-
         </div>
       </div>
     </div>
   </div>
-</div>
 
 
-<style>
-  .input__consulta {
-    display: flex;
-  }
 
-  .inputs__actualizar {
-    display: flex;
-    flex-direction: column;
+  <style>
+    label {
+      font-weight: bold;
+    }
 
-  }
-</style>
+    ::-webkit-file-upload-button {
+      background: #419ef9;
+      cursor: pointer !important;
+      background-size: 210% 210%;
+      background-position: top right;
+      transition: all 0.15s ease;
+      box-shadow: none;
+      color: #ffffff;
+      border: none;
+      border-width: 2px;
+      border: none;
+      position: relative;
+      overflow: hidden;
+      margin: 4px 1px;
+      border-radius: 0.4285rem;
+      padding: .7rem;
+      margin-right: 1rem;
+    }
+
+    #csv {
+      cursor: pointer !important;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .row {
+      width: 100%;
+      justify-content: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .form-buttom {
+      display: flex;
+
+      justify-content: space-around;
+    }
+
+    .title {
+      margin: 1rem 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .ingreso {
+      display: flex;
+      justify-content: center;
+      color: greenyellow;
+    }
+
+    .btn {
+      margin: 0 .5rem;
+    }
+
+    .botnes {
+      margin-bottom: 1 rem !important;
+      align-items: center;
+      margin: 1rem !important;
+    }
+
+    @media only screen and (maxn-width: 480px) {
+      .content {
+        display: block;
+      }
+
+      .row {
+        display: block;
+      }
+
+      form {
+        display: block;
+      }
+
+      .form-buttom {
+        display: block;
+      }
+
+    }
+  </style>

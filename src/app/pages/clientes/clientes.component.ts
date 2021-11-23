@@ -27,6 +27,40 @@ export class ClientesComponent implements OnInit {
   res: any;
   contenido: any;
 
+  validar(mensaje) {
+    if (
+      this.codigorespuesta == 201 ||
+      this.codigorespuesta == 200 ||
+      this.contenido
+    ) {
+      this.toastr.info(
+        '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>CORRECTO!!</b> ' +
+          mensaje,
+        "",
+        {
+          timeOut: 5000,
+          closeButton: true,
+          enableHtml: true,
+          toastClass: "alert alert-success alert-with-icon",
+          positionClass: "toast-" + "top" + "-" + "center",
+        }
+      );
+    } else {
+      this.toastr.info(
+        '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>ERROR!!</b>  ' +
+          mensaje,
+        "",
+        {
+          timeOut: 5000,
+          closeButton: true,
+          enableHtml: true,
+          toastClass: "alert alert-danger alert-with-icon",
+          positionClass: "toast-" + "top" + "-" + "center",
+        }
+      );
+    }
+  }
+
   urlapi: string = "http://localhost:8080/api/clientes?cedula=";
   getData() {
     this.res = this.objetohttp.get(this.urlapi + this.cedula);
@@ -45,6 +79,7 @@ export class ClientesComponent implements OnInit {
         this.telefono,
         this.correo
       );
+      this.validar("Consulta de CLiente");
       console.log();
     });
   }
@@ -66,31 +101,7 @@ export class ClientesComponent implements OnInit {
       .subscribe((response) => {
         this.codigorespuesta = response.status;
         console.log(response);
-        if (this.codigorespuesta == 201) {
-          this.toastr.info(
-            '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>CORRECTO!!</b> el Cliente fue cargado correctamente ',
-            "",
-            {
-              timeOut: 5000,
-              closeButton: true,
-              enableHtml: true,
-              toastClass: "alert alert-success alert-with-icon",
-              positionClass: "toast-" + "top" + "-" + "center",
-            }
-          );
-        } else {
-          this.toastr.info(
-            '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>ERROR!!</b> el Cliente no fue cargado ',
-            "",
-            {
-              timeOut: 5000,
-              closeButton: true,
-              enableHtml: true,
-              toastClass: "alert alert-danger alert-with-icon",
-              positionClass: "toast-" + "top" + "-" + "center",
-            }
-          );
-        }
+        this.validar("Put de Cliente");
       });
   }
   postData() {
@@ -109,31 +120,7 @@ export class ClientesComponent implements OnInit {
       .subscribe((response) => {
         this.codigorespuesta = response.status;
         console.log(response);
-        if (this.codigorespuesta == 201) {
-          this.toastr.info(
-            '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>CORRECTO!!</b> el Cliente fue cargado correctamente ',
-            "",
-            {
-              timeOut: 5000,
-              closeButton: true,
-              enableHtml: true,
-              toastClass: "alert alert-success alert-with-icon",
-              positionClass: "toast-" + "top" + "-" + "center",
-            }
-          );
-        } else {
-          this.toastr.info(
-            '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>ERROR!!</b> el Cliente no fue cargado ',
-            "",
-            {
-              timeOut: 5000,
-              closeButton: true,
-              enableHtml: true,
-              toastClass: "alert alert-danger alert-with-icon",
-              positionClass: "toast-" + "top" + "-" + "center",
-            }
-          );
-        }
+        this.validar("Post de Cliente");
       });
   }
   deleteData() {
@@ -148,31 +135,7 @@ export class ClientesComponent implements OnInit {
       .subscribe((response) => {
         this.codigorespuesta = response.status;
         console.log(response);
-        if (this.codigorespuesta == 201) {
-          this.toastr.info(
-            '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>CORRECTO!!</b> el Cliente fue cargado correctamente ',
-            "",
-            {
-              timeOut: 5000,
-              closeButton: true,
-              enableHtml: true,
-              toastClass: "alert alert-success alert-with-icon",
-              positionClass: "toast-" + "top" + "-" + "center",
-            }
-          );
-        } else {
-          this.toastr.info(
-            '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>ERROR!!</b> el Cliente no fue cargado ',
-            "",
-            {
-              timeOut: 5000,
-              closeButton: true,
-              enableHtml: true,
-              toastClass: "alert alert-danger alert-with-icon",
-              positionClass: "toast-" + "top" + "-" + "center",
-            }
-          );
-        }
+        this.validar("Delete de Cliente");
       });
   }
   ngOnInit() {}
