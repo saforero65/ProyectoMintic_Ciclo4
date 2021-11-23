@@ -1,0 +1,39 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-8">
+      <div class=" card">
+        <div class=" card-header">
+          <h2 class=" title">Tabla Clientes </h2>
+        </div>
+        <div class=" card-body">
+
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Cedula</th>
+                <th>Nombre Completo</th>
+                <th>Dirección</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cliente of contenido">
+                <td> {{cliente.cedula}} </td>
+                <td>{{cliente.nombrecompleto}}</td>
+                <td>{{cliente.direccion}}</td>
+                <td>{{cliente.telefono}}</td>
+                <td>{{cliente.correo}}</td>
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

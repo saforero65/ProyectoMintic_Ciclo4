@@ -93,7 +93,7 @@ export class TablesComponent implements OnInit {
   async onUpload() {
     console.log(this.file);
     console.log(this.file.type);
-    if (this.file.type.includes("csv")) {
+    if (this.file.type.includes("csv") || this.file.type.includes("excel")) {
       console.log(this.file.type);
       this.resultados = await this.fileUploadService.upload(this.file);
       console.log("enviado");
