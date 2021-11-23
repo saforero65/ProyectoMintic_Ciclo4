@@ -63,80 +63,101 @@ export class ClientesComponent implements OnInit {
 
   urlapi: string = "http://localhost:8080/api/clientes?cedula=";
   getData() {
-    this.res = this.objetohttp.get(this.urlapi + this.cedula);
-    this.res.subscribe((data: any[]) => {
-      this.contenido = data;
-      this.cedula = data[0].cedula;
-      this.nombrecompleto = data[0].nombrecompleto;
-      this.direccion = data[0].direccion;
-      this.telefono = data[0].telefono;
-      this.correo = data[0].correo;
-      this.id = this.contenido[0].id;
-      console.log(
-        this.cedula,
-        this.nombrecompleto,
-        this.direccion,
-        this.telefono,
-        this.correo
-      );
-      this.validar("Consulta de CLiente");
-      console.log();
-    });
+    if (this.cedula) {
+      this.res = this.objetohttp.get(this.urlapi + this.cedula);
+      this.res.subscribe((data: any[]) => {
+        this.contenido = data;
+        this.cedula = data[0].cedula;
+        this.nombrecompleto = data[0].nombrecompleto;
+        this.direccion = data[0].direccion;
+        this.telefono = data[0].telefono;
+        this.correo = data[0].correo;
+        this.id = this.contenido[0].id;
+        console.log(
+          this.cedula,
+          this.nombrecompleto,
+          this.direccion,
+          this.telefono,
+          this.correo
+        );
+        this.validar("Consulta de CLiente");
+        console.log();
+      });
+    } else {
+      this.validar("Llene el input de Cliente");
+    }
   }
 
   putData() {
     console.log(this.nombrecompleto);
-    this.objetohttp
-      .put<any>(
-        "http://localhost:8080/api/clientes/" + this.id,
-        {
-          cedula: this.cedula,
-          nombrecompleto: this.nombrecompleto,
-          direccion: this.direccion,
-          telefono: this.telefono,
-          correo: this.correo,
-        },
-        { observe: "response" }
-      )
-      .subscribe((response) => {
-        this.codigorespuesta = response.status;
-        console.log(response);
-        this.validar("Put de Cliente");
-      });
+    if (this.cedula) {
+      this.objetohttp
+        .put<any>(
+          "http://localhost:8080/api/clientes/" + this.id,
+          {
+            cedula: this.cedula,
+            nombrecompleto: this.nombrecompleto,
+            direccion: this.direccion,
+            telefono: this.telefono,
+            correo: this.correo,
+          },
+          { observe: "response" }
+        )
+        .subscribe((response) => {
+          this.codigorespuesta = response.status;
+          console.log(response);
+          this.validar("Put de Cliente");
+        });
+    } else {
+      this.validar("Llene el input de Cliente");
+    }
   }
   postData() {
-    this.objetohttp
-      .post<any>(
-        "http://localhost:8080/api/clientes",
-        {
-          cedula: this.cedula,
-          nombrecompleto: this.nombrecompleto,
-          direccion: this.direccion,
-          telefono: this.telefono,
-          correo: this.correo,
-        },
-        { observe: "response" }
-      )
-      .subscribe((response) => {
-        this.codigorespuesta = response.status;
-        console.log(response);
-        this.validar("Post de Cliente");
-      });
+    if (
+      this.cedula &&
+      this.nombrecompleto &&
+      this.direccion &&
+      this.telefono &&
+      this.correo
+    ) {
+      this.objetohttp
+        .post<any>(
+          "http://localhost:8080/api/clientes",
+          {
+            cedula: this.cedula,
+            nombrecompleto: this.nombrecompleto,
+            direccion: this.direccion,
+            telefono: this.telefono,
+            correo: this.correo,
+          },
+          { observe: "response" }
+        )
+        .subscribe((response) => {
+          this.codigorespuesta = response.status;
+          console.log(response);
+          this.validar("Post de Cliente");
+        });
+    } else {
+      this.validar("Campos vacios de Cliente");
+    }
   }
   deleteData() {
     console.log(this.nombrecompleto);
+    if (this.cedula) {
+      this.objetohttp
+        .delete<any>(
+          "http://localhost:8080/api/clientes/" + this.id,
 
-    this.objetohttp
-      .delete<any>(
-        "http://localhost:8080/api/clientes/" + this.id,
-
-        { observe: "response" }
-      )
-      .subscribe((response) => {
-        this.codigorespuesta = response.status;
-        console.log(response);
-        this.validar("Delete de Cliente");
-      });
+          { observe: "response" }
+        )
+        .subscribe((response) => {
+          this.codigorespuesta = response.status;
+          console.log(response);
+          this.validar("Delete de Cliente");
+        });
+    } else {
+      this.validar("Llene el input de Cliente");
+    }
   }
   ngOnInit() {}
 }
