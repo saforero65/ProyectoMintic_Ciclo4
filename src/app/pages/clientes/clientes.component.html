@@ -32,37 +32,38 @@
                 <input type="submit" class="btn btn-fill" value="Consultar" (click)="getData()">
               </div><br>
 
+              <div *ngIf="contenido">
+                <div class="row mb-4">
+                  <!-- Nombre completo -->
+                  <div class="col">
+                    <div class="form-outline">
+                      <input type="text" class="form-control" [(ngModel)]="nombrecompleto" />
+                      <label class="form-label" for="nombrecompleto">Nombre Completo</label>
+                    </div>
+                  </div>
+                  <!-- Teléfono -->
+                  <div class="col">
+                    <div class="form-outline">
+                      <input type="text" class="form-control" [(ngModel)]="telefono" />
+                      <label class="form-label" for="telefono">Teléfono</label>
+                    </div>
+                  </div>
+                </div>
 
-              <div class="row mb-4">
-                <!-- Nombre completo -->
-                <div class="col">
-                  <div class="form-outline">
-                    <input type="text" class="form-control" [(ngModel)]="nombrecompleto" />
-                    <label class="form-label" for="nombrecompleto">Nombre Completo</label>
+                <div class="row mb-4">
+                  <!-- Dirección -->
+                  <div class="col">
+                    <div class="form-outline">
+                      <input type="text" class="form-control" [(ngModel)]="direccion" />
+                      <label class="form-label" for="direccion">Dirección</label>
+                    </div>
                   </div>
-                </div>
-                <!-- Teléfono -->
-                <div class="col">
-                  <div class="form-outline">
-                    <input type="text" class="form-control" [(ngModel)]="telefono" />
-                    <label class="form-label" for="telefono">Teléfono</label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row mb-4">
-                <!-- Dirección -->
-                <div class="col">
-                  <div class="form-outline">
-                    <input type="text" class="form-control" [(ngModel)]="direccion" />
-                    <label class="form-label" for="direccion">Dirección</label>
-                  </div>
-                </div>
-                <!-- Email -->
-                <div class="col">
-                  <div class="form-outline">
-                    <input type="text" class="form-control" [(ngModel)]="correo" />
-                    <label class="form-label" for="email">Correo Electrónico</label>
+                  <!-- Email -->
+                  <div class="col">
+                    <div class="form-outline">
+                      <input type="text" class="form-control" [(ngModel)]="correo" />
+                      <label class="form-label" for="email">Correo Electrónico</label>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -136,42 +137,42 @@
                 <input type="submit" class="btn btn-fill" value="Consultar" (click)="getData()">
               </div><br>
 
+              <div *ngIf="contenido">
+                <div class="row mb-4">
+                  <!-- Nombre completo -->
+                  <div class="col">
+                    <div class="form-outline">
+                      <input type="text" class="form-control" [(ngModel)]="nombrecompleto" />
+                      <label class="form-label" for="nombrecompleto">Nombre Completo</label>
+                    </div>
+                  </div>
+                  <!-- Teléfono -->
+                  <div class="col">
+                    <div class="form-outline">
+                      <input type="text" class="form-control" [(ngModel)]="telefono" />
+                      <label class="form-label" for="telefono">Teléfono</label>
+                    </div>
+                  </div>
+                </div>
 
-              <div class="row mb-4">
-                <!-- Nombre completo -->
-                <div class="col">
-                  <div class="form-outline">
-                    <input type="text" class="form-control" [(ngModel)]="nombrecompleto" />
-                    <label class="form-label" for="nombrecompleto">Nombre Completo</label>
+                <div class="row mb-4">
+                  <!-- Dirección -->
+                  <div class="col">
+                    <div class="form-outline">
+                      <input type="text" class="form-control" [(ngModel)]="direccion" />
+                      <label class="form-label" for="direccion">Dirección</label>
+                    </div>
+                  </div>
+                  <!-- Email -->
+                  <div class="col">
+                    <div class="form-outline">
+                      <input type="text" class="form-control" [(ngModel)]="correo" />
+                      <label class="form-label" for="email">Correo Electrónico</label>
+                    </div>
                   </div>
                 </div>
-                <!-- Teléfono -->
-                <div class="col">
-                  <div class="form-outline">
-                    <input type="text" class="form-control" [(ngModel)]="telefono" />
-                    <label class="form-label" for="telefono">Teléfono</label>
-                  </div>
-                </div>
+                <input type="submit" class="btn btn-fill" value="Actualizar" (click)="putData()">
               </div>
-
-              <div class="row mb-4">
-                <!-- Dirección -->
-                <div class="col">
-                  <div class="form-outline">
-                    <input type="text" class="form-control" [(ngModel)]="direccion" />
-                    <label class="form-label" for="direccion">Dirección</label>
-                  </div>
-                </div>
-                <!-- Email -->
-                <div class="col">
-                  <div class="form-outline">
-                    <input type="text" class="form-control" [(ngModel)]="correo" />
-                    <label class="form-label" for="email">Correo Electrónico</label>
-                  </div>
-                </div>
-              </div>
-
-              <input type="submit" class="btn btn-fill" value="Actualizar" (click)="putData()">
             </div>
           </div>
 
@@ -189,40 +190,41 @@
                 </div><br>
               </div>
 
-
-              <div class="row mb-4">
-                <!-- Nombre completo -->
-                <div class="col">
-                  <div class="form-outline">
-                    <input type="text" class="form-control" [(ngModel)]="nombrecompleto" />
-                    <label class="form-label" for="nombrecompleto">Nombre Completo</label>
+              <div *ngIf="contenido">
+                <div class="row mb-4">
+                  <!-- Nombre completo -->
+                  <div class="col">
+                    <div class="form-outline">
+                      <input type="text" class="form-control" [(ngModel)]="nombrecompleto" />
+                      <label class="form-label" for="nombrecompleto">Nombre Completo</label>
+                    </div>
+                  </div>
+                  <!-- Teléfono -->
+                  <div class="col">
+                    <div class="form-outline">
+                      <input type="text" class="form-control" [(ngModel)]="telefono" />
+                      <label class="form-label" for="telefono">Teléfono</label>
+                    </div>
+                  </div>
+                  <div class="row mb-4"></div>
+                  <!-- Dirección -->
+                  <div class="col">
+                    <div class="form-outline">
+                      <input type="text" class="form-control" [(ngModel)]="direccion" />
+                      <label class="form-label" for="email">Dirección</label>
+                    </div>
+                  </div>
+                  <!-- Correo -->
+                  <div class="col">
+                    <div class="form-outline">
+                      <input type="text" class="form-control" [(ngModel)]="correo" />
+                      <label class="form-label" for="email">Correo Electrónico</label>
+                    </div>
                   </div>
                 </div>
-                <!-- Teléfono -->
-                <div class="col">
-                  <div class="form-outline">
-                    <input type="text" class="form-control" [(ngModel)]="telefono" />
-                    <label class="form-label" for="telefono">Teléfono</label>
-                  </div>
+                <div>
+                  <input type="submit" class="btn btn-fill" value="Eliminar Cliente" (click)="deleteData()">
                 </div>
-                <div class="row mb-4"></div>
-                <!-- Dirección -->
-                <div class="col">
-                  <div class="form-outline">
-                    <input type="text" class="form-control" [(ngModel)]="direccion" />
-                    <label class="form-label" for="email">Dirección</label>
-                  </div>
-                </div>
-                <!-- Correo -->
-                <div class="col">
-                  <div class="form-outline">
-                    <input type="text" class="form-control" [(ngModel)]="correo" />
-                    <label class="form-label" for="email">Correo Electrónico</label>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <input type="submit" class="btn btn-fill" value="Eliminar Cliente" (click)="deleteData()">
               </div>
             </div>
           </div>
