@@ -19,7 +19,7 @@ export const ROUTES: RouteInfo[] = [
     path: "/tablaProductos",
     title: "Tablas Productos",
     rtlTitle: "لوحة القيادة",
-    icon: "icon-cart",
+    icon: "icon-notes",
     class: "",
   },
   {
@@ -33,7 +33,7 @@ export const ROUTES: RouteInfo[] = [
     path: "/tablasClientes",
     title: "Tablas Clientes",
     rtlTitle: "خرائط",
-    icon: "icon-pin",
+    icon: "icon-notes",
     class: "",
   },
   {
