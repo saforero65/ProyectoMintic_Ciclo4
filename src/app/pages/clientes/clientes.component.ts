@@ -1,7 +1,8 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 import { FileUploadService } from "../tables/file-upload.service";
+import { catchError, map, tap } from "rxjs/operators";
 
 @Component({
   selector: "app-clientes",
@@ -28,6 +29,8 @@ export class ClientesComponent implements OnInit {
   contenido: any;
 
   validar(mensaje) {
+    console.log("entro a validar");
+    console.log(this.codigorespuesta);
     if (
       this.codigorespuesta == 201 ||
       this.codigorespuesta == 200 ||
@@ -46,6 +49,7 @@ export class ClientesComponent implements OnInit {
         }
       );
     } else {
+      console.log(this.codigorespuesta);
       this.toastr.info(
         '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>ERROR!!</b>  ' +
           mensaje,
@@ -58,31 +62,43 @@ export class ClientesComponent implements OnInit {
           positionClass: "toast-" + "top" + "-" + "center",
         }
       );
+      this.reset();
     }
   }
 
   urlapi: string = "http://localhost:8080/api/clientes?cedula=";
   getData() {
     if (this.cedula) {
-      this.res = this.objetohttp.get(this.urlapi + this.cedula);
-      this.res.subscribe((data: any[]) => {
-        this.contenido = data;
-        this.cedula = data[0].cedula;
-        this.nombrecompleto = data[0].nombrecompleto;
-        this.direccion = data[0].direccion;
-        this.telefono = data[0].telefono;
-        this.correo = data[0].correo;
-        this.id = this.contenido[0].id;
-        console.log(
-          this.cedula,
-          this.nombrecompleto,
-          this.direccion,
-          this.telefono,
-          this.correo
-        );
-        this.validar("Consulta de CLiente");
-        console.log();
+      this.res = this.objetohttp.get(this.urlapi + this.cedula, {
+        observe: "response",
       });
+
+      this.res.subscribe(
+        (data: any) => {
+          this.contenido = data.body[0];
+          console.log(data.body[0]);
+          this.cedula = this.contenido.cedula;
+          this.nombrecompleto = this.contenido.nombrecompleto;
+          this.direccion = this.contenido.direccion;
+          this.telefono = this.contenido.telefono;
+          this.correo = this.contenido.correo;
+          this.id = this.contenido.id;
+          console.log(
+            this.cedula,
+            this.nombrecompleto,
+            this.direccion,
+            this.telefono,
+            this.correo
+          );
+          this.validar("Usuario Encontrado");
+        },
+
+        (response: any) => {
+          this.codigorespuesta = response.status;
+          console.log(this.codigorespuesta);
+          this.validar("No se encuentra en la BD");
+        }
+      );
     } else {
       this.validar("Llene el input de Cliente");
     }
@@ -90,7 +106,8 @@ export class ClientesComponent implements OnInit {
 
   putData() {
     console.log(this.nombrecompleto);
-    if (this.cedula) {
+    console.log(this.cedula);
+    if (this.cedula == 0) {
       this.objetohttp
         .put<any>(
           "http://localhost:8080/api/clientes/" + this.id,
@@ -107,8 +124,10 @@ export class ClientesComponent implements OnInit {
           this.codigorespuesta = response.status;
           console.log(response);
           this.validar("Put de Cliente");
+          this.reset();
         });
     } else {
+      console.log(this.cedula);
       this.validar("Llene el input de Cliente");
     }
   }
@@ -136,6 +155,7 @@ export class ClientesComponent implements OnInit {
           this.codigorespuesta = response.status;
           console.log(response);
           this.validar("Post de Cliente");
+          this.reset();
         });
     } else {
       this.validar("Campos vacios de Cliente");
@@ -154,10 +174,20 @@ export class ClientesComponent implements OnInit {
           this.codigorespuesta = response.status;
           console.log(response);
           this.validar("Delete de Cliente");
+          this.reset();
         });
     } else {
       this.validar("Llene el input de Cliente");
     }
+  }
+
+  reset() {
+    this.cedula = null;
+    this.nombrecompleto = null;
+    this.direccion = null;
+    this.telefono = null;
+    this.correo = null;
+    this.contenido = null;
   }
   ngOnInit() {}
 }

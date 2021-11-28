@@ -10,10 +10,10 @@
           <div class=" col-md-12">
             <div class="form-group form-buttom botnes ">
 
-              <input class=" btn btn-fill" value="Consultar" (click)="crud=1" />
-              <input class=" btn btn-fill" value="Crear" (click)="crud=2" />
-              <input class=" btn btn-fill" value="Actualizar" (click)="crud=3" />
-              <input class=" btn btn-fill" value="Borrar" (click)="crud=4" />
+              <input class=" btn btn-fill" value="Consultar" (click)="crud=1;reset()" />
+              <input class=" btn btn-fill" value="Crear" (click)="crud=2;reset()" />
+              <input class=" btn btn-fill" value="Actualizar" (click)="crud=3;reset()" />
+              <input class=" btn btn-fill" value="Borrar" (click)="crud=4;reset()" />
 
 
             </div><br>
@@ -25,7 +25,8 @@
               <h2>CONSULTAR</h2>
               <!-- Cédula -->
               <div class="form-outline ">
-                <input type="text" id="cedula" class="form-control " [(ngModel)]="cedula" />
+                <input type="text" id="cedula" class="form-control " [(ngModel)]="cedula"
+                  (focus)="this.contenido=null" />
                 <label class="form-label" for="cedula">Cédula</label>
               </div>
               <div>
@@ -37,14 +38,14 @@
                   <!-- Nombre completo -->
                   <div class="col">
                     <div class="form-outline">
-                      <input type="text" class="form-control" [(ngModel)]="nombrecompleto" />
+                      <input type="text" class="form-control" [(ngModel)]="nombrecompleto" disabled />
                       <label class="form-label" for="nombrecompleto">Nombre Completo</label>
                     </div>
                   </div>
                   <!-- Teléfono -->
                   <div class="col">
                     <div class="form-outline">
-                      <input type="text" class="form-control" [(ngModel)]="telefono" />
+                      <input type="text" class="form-control" [(ngModel)]="telefono" disabled />
                       <label class="form-label" for="telefono">Teléfono</label>
                     </div>
                   </div>
@@ -54,14 +55,14 @@
                   <!-- Dirección -->
                   <div class="col">
                     <div class="form-outline">
-                      <input type="text" class="form-control" [(ngModel)]="direccion" />
+                      <input type="text" class="form-control" [(ngModel)]="direccion" disabled />
                       <label class="form-label" for="direccion">Dirección</label>
                     </div>
                   </div>
                   <!-- Email -->
                   <div class="col">
                     <div class="form-outline">
-                      <input type="text" class="form-control" [(ngModel)]="correo" />
+                      <input type="email" class="form-control" [(ngModel)]="correo" disabled />
                       <label class="form-label" for="email">Correo Electrónico</label>
                     </div>
                   </div>
@@ -104,7 +105,7 @@
                 <!-- Email -->
                 <div class="col">
                   <div class="form-outline">
-                    <input type="text" id="email" class="form-control" [(ngModel)]="correo" />
+                    <input type="email" id="email" class="form-control" [(ngModel)]="correo" />
                     <label class="form-label" for="email">Correo Electrónico</label>
                   </div>
                 </div>
@@ -166,7 +167,7 @@
                   <!-- Email -->
                   <div class="col">
                     <div class="form-outline">
-                      <input type="text" class="form-control" [(ngModel)]="correo" />
+                      <input type="email" class="form-control" [(ngModel)]="correo" />
                       <label class="form-label" for="email">Correo Electrónico</label>
                     </div>
                   </div>
