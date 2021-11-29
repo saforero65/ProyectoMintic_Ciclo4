@@ -86,7 +86,7 @@ public class ClienteController {
 
 	    if (clienteData.isPresent()) {
 	      Cliente _cliente = clienteData.get();
-	      _cliente.setCedula(client.getCedula());
+	      
 	      _cliente.setNombrecompleto(client.getNombrecompleto());
 	      _cliente.setDireccion(client.getDireccion());
 	      _cliente.setTelefono(client.getTelefono());

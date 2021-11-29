@@ -18,7 +18,7 @@ export class TablasClientesComponent implements OnInit {
     this.res = this.objetohttp.get(this.urlapi);
     this.res.subscribe((data: any[]) => {
       this.contenido = data;
-      // console.log(this.contenido[0]);
+      console.log(this.contenido);
     });
   }
 }

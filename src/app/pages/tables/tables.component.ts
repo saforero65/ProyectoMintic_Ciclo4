@@ -1,8 +1,7 @@
 import { Component, ElementRef, OnInit } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { Subject, throwError } from "rxjs";
-import { catchError } from "rxjs/operators";
+;
 import { FileUploadService } from "./file-upload.service";
 import { ViewChild } from "@angular/core";
 
@@ -15,7 +14,7 @@ export class TablesComponent implements OnInit {
     private toastr: ToastrService,
     private objetohttp: HttpClient,
     private fileUploadService: FileUploadService
-  ) {}
+  ) { }
   cargacsv: boolean = true;
   codigoproducto!: number;
   ivacompra!: number;
@@ -24,10 +23,11 @@ export class TablesComponent implements OnInit {
   preciocompra!: number;
   precioventa!: number;
 
-  codigorespuesta!: number;
+  codigorespuesta: any;
+  resultado: any
 
   postData() {
-    this.objetohttp
+    this.resultado = this.objetohttp
       .post<any>(
         "http://localhost:8080/api/productos",
         {
@@ -37,41 +37,76 @@ export class TablesComponent implements OnInit {
           nombreproducto: this.nombreproducto,
           preciocompra: this.preciocompra,
           precioventa: this.precioventa,
+
         },
-        { observe: "response" }
-      )
-      .subscribe((response) => {
-        this.codigorespuesta = response.status;
-        if (this.codigorespuesta == 201) {
-          this.toastr.info(
-            '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>CORRECTO!!</b> el Producto fue cargado correctamente ',
-            "",
-            {
-              timeOut: 5000,
-              closeButton: true,
-              enableHtml: true,
-              toastClass: "alert alert-success alert-with-icon",
-              positionClass: "toast-" + "top" + "-" + "center",
-            }
-          );
-        } else {
-          this.toastr.info(
-            '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>ERROR!!</b> el Producto no fue cargado ',
-            "",
-            {
-              timeOut: 5000,
-              closeButton: true,
-              enableHtml: true,
-              toastClass: "alert alert-danger alert-with-icon",
-              positionClass: "toast-" + "top" + "-" + "center",
-            }
-          );
-        }
-      });
+        { observe: "response" },
+      );
+
+    this.resultado.subscribe((response: any) => {
+      this.codigorespuesta = response.status;
+      console.log("entro");
+      console.log(this.codigorespuesta)
+      if (this.codigorespuesta == 201) {
+        this.toastr.info(
+          '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>CORRECTO!!</b> el Producto fue cargado correctamente ',
+          "",
+          {
+            timeOut: 5000,
+            closeButton: true,
+            enableHtml: true,
+            toastClass: "alert alert-success alert-with-icon",
+            positionClass: "toast-" + "top" + "-" + "center",
+          }
+        );
+      } else {
+        this.toastr.info(
+          '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>ERROR!!</b> el Producto no fue cargado ',
+          "",
+          {
+            timeOut: 5000,
+            closeButton: true,
+            enableHtml: true,
+            toastClass: "alert alert-danger alert-with-icon",
+            positionClass: "toast-" + "top" + "-" + "center",
+          }
+        );
+      }
+
+    }, (response: any) => {
+      this.codigorespuesta = response.status;
+      console.log("entro");
+      console.log(this.codigorespuesta)
+      if (this.codigorespuesta == 201) {
+        this.toastr.info(
+          '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>CORRECTO!!</b> el Producto fue cargado correctamente ',
+          "",
+          {
+            timeOut: 5000,
+            closeButton: true,
+            enableHtml: true,
+            toastClass: "alert alert-success alert-with-icon",
+            positionClass: "toast-" + "top" + "-" + "center",
+          }
+        );
+      } else {
+        this.toastr.info(
+          '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>ERROR!!</b> el Producto no fue cargado ',
+          "",
+          {
+            timeOut: 5000,
+            closeButton: true,
+            enableHtml: true,
+            toastClass: "alert alert-danger alert-with-icon",
+            positionClass: "toast-" + "top" + "-" + "center",
+          }
+        );
+      }
+    });
+
   }
 
-  ngOnInit() {}
-  codigoRespuesta: number = 0;
+  ngOnInit() { }
+
   res2: any;
 
   @ViewChild("myInput")

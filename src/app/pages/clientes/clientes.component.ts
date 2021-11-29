@@ -1,8 +1,7 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 import { FileUploadService } from "../tables/file-upload.service";
-import { catchError, map, tap } from "rxjs/operators";
 
 @Component({
   selector: "app-clientes",
@@ -31,7 +30,21 @@ export class ClientesComponent implements OnInit {
   validar(mensaje) {
     console.log("entro a validar");
     console.log(this.codigorespuesta);
-    if (
+    if (this.codigorespuesta == 400) {
+      this.toastr.info(
+        '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>ERROR 400!!</b>  ' +
+          mensaje +
+          "verifique los campos que ingreso",
+        "",
+        {
+          timeOut: 5000,
+          closeButton: true,
+          enableHtml: true,
+          toastClass: "alert alert-danger alert-with-icon",
+          positionClass: "toast-" + "top" + "-" + "center",
+        }
+      );
+    } else if (
       this.codigorespuesta == 201 ||
       this.codigorespuesta == 200 ||
       this.contenido
@@ -75,30 +88,37 @@ export class ClientesComponent implements OnInit {
 
       this.res.subscribe(
         (data: any) => {
-          this.contenido = data.body[0];
-          console.log(data.body[0]);
-          this.cedula = this.contenido.cedula;
-          this.nombrecompleto = this.contenido.nombrecompleto;
-          this.direccion = this.contenido.direccion;
-          this.telefono = this.contenido.telefono;
-          this.correo = this.contenido.correo;
-          this.id = this.contenido.id;
-          console.log(
-            this.cedula,
-            this.nombrecompleto,
-            this.direccion,
-            this.telefono,
-            this.correo
-          );
-          this.validar("Usuario Encontrado");
-        },
+          console.log("entro a suscribe");
+          try {
+            this.contenido = data.body[0];
 
+            this.cedula = this.contenido.cedula;
+            this.nombrecompleto = this.contenido.nombrecompleto;
+            this.direccion = this.contenido.direccion;
+            this.telefono = this.contenido.telefono;
+            this.correo = this.contenido.correo;
+            this.id = this.contenido.id;
+            console.log(
+              this.cedula,
+              this.nombrecompleto,
+              this.direccion,
+              this.telefono,
+              this.correo
+            );
+            this.validar("Usuario Encontrado");
+          } catch (error) {
+            console.log("entro a catch error");
+            this.contenido = null;
+            this.validar("No se encuentra en la BD");
+          }
+        },
         (response: any) => {
           this.codigorespuesta = response.status;
           console.log(this.codigorespuesta);
           this.validar("No se encuentra en la BD");
         }
       );
+      console.log(this.res.subscribe);
     } else {
       this.validar("Llene el input de Cliente");
     }
@@ -107,7 +127,9 @@ export class ClientesComponent implements OnInit {
   putData() {
     console.log(this.nombrecompleto);
     console.log(this.cedula);
-    if (this.cedula == 0) {
+    if (this.cedula) {
+      console.log(this.id);
+
       this.objetohttp
         .put<any>(
           "http://localhost:8080/api/clientes/" + this.id,
@@ -120,14 +142,23 @@ export class ClientesComponent implements OnInit {
           },
           { observe: "response" }
         )
-        .subscribe((response) => {
-          this.codigorespuesta = response.status;
-          console.log(response);
-          this.validar("Put de Cliente");
-          this.reset();
-        });
+        .subscribe(
+          (response) => {
+            this.codigorespuesta = response.status;
+            console.log(response);
+            this.validar("Put de Cliente");
+            this.reset();
+          },
+          (response: any) => {
+            this.codigorespuesta = response.status;
+            console.log(this.codigorespuesta);
+            this.validar("Erroor");
+          }
+        );
     } else {
       console.log(this.cedula);
+      console.log(this.id);
+
       this.validar("Llene el input de Cliente");
     }
   }
@@ -151,12 +182,19 @@ export class ClientesComponent implements OnInit {
           },
           { observe: "response" }
         )
-        .subscribe((response) => {
-          this.codigorespuesta = response.status;
-          console.log(response);
-          this.validar("Post de Cliente");
-          this.reset();
-        });
+        .subscribe(
+          (response) => {
+            this.codigorespuesta = response.status;
+            console.log("codigo respuesta: " + this.codigorespuesta);
+            this.validar("Post de Cliente");
+            this.reset();
+          },
+          (response: any) => {
+            this.codigorespuesta = response.status;
+            console.log(this.codigorespuesta);
+            this.validar("Post de Cliente");
+          }
+        );
     } else {
       this.validar("Campos vacios de Cliente");
     }
@@ -164,6 +202,7 @@ export class ClientesComponent implements OnInit {
   deleteData() {
     console.log(this.nombrecompleto);
     if (this.cedula) {
+      console.log(this.id);
       this.objetohttp
         .delete<any>(
           "http://localhost:8080/api/clientes/" + this.id,
@@ -177,6 +216,10 @@ export class ClientesComponent implements OnInit {
           this.reset();
         });
     } else {
+      console.log(this.cedula);
+
+      console.log(this.id);
+
       this.validar("Llene el input de Cliente");
     }
   }
