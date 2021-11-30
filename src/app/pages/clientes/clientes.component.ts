@@ -32,9 +32,9 @@ export class ClientesComponent implements OnInit {
     console.log(this.codigorespuesta);
     if (this.codigorespuesta == 400) {
       this.toastr.info(
-        '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>ERROR 400!!</b>  ' +
+        '<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>ERROR !!</b>  ' +
           mensaje +
-          "verifique los campos que ingreso",
+          " Verifique los campos que ingreso",
         "",
         {
           timeOut: 5000,
@@ -105,17 +105,22 @@ export class ClientesComponent implements OnInit {
               this.telefono,
               this.correo
             );
-            this.validar("Usuario Encontrado");
+            this.validar(`Usuario con ${this.cedula} Encontrado`);
           } catch (error) {
             console.log("entro a catch error");
             this.contenido = null;
-            this.validar("No se encuentra en la BD");
+            this.validar(
+              `Usuario con Cedula ${this.cedula} No se encuentra en la BD`
+            );
           }
         },
         (response: any) => {
           this.codigorespuesta = response.status;
+
           console.log(this.codigorespuesta);
-          this.validar("No se encuentra en la BD");
+          this.validar(
+            `Usuario con Cedula ${this.cedula} No se encuentra en la BD`
+          );
         }
       );
       console.log(this.res.subscribe);
