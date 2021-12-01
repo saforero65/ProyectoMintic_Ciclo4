@@ -16,6 +16,7 @@ import { ComponentsModule } from "./components/components.module";
 import { LoaderComponent } from "./loader/loader.component";
 import { ClientesComponent } from "./pages/clientes/clientes.component";
 import { TablasClientesComponent } from "./pages/tablas-clientes/tablas-clientes.component";
+import { VentasComponent } from './pages/ventas/ventas.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { TablasClientesComponent } from "./pages/tablas-clientes/tablas-clientes
     LoaderComponent,
     ClientesComponent,
     TablasClientesComponent,
+    VentasComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

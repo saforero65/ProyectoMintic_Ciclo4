@@ -1,7 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
-import { FileUploadService } from "../tables/file-upload.service";
 
 @Component({
   selector: "app-clientes",
@@ -9,11 +8,7 @@ import { FileUploadService } from "../tables/file-upload.service";
   styleUrls: ["./clientes.component.scss"],
 })
 export class ClientesComponent implements OnInit {
-  constructor(
-    private toastr: ToastrService,
-    private objetohttp: HttpClient,
-    private fileUploadService: FileUploadService
-  ) {}
+  constructor(private toastr: ToastrService, private objetohttp: HttpClient) {}
   crud: number = 1;
   cedula!: number;
   nombrecompleto!: string;

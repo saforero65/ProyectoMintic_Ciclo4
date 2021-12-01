@@ -15,18 +15,26 @@ export const ROUTES: RouteInfo[] = [
     icon: "icon-cart",
     class: "",
   },
-  {
-    path: "/tablaProductos",
-    title: "Tablas Productos",
-    rtlTitle: "لوحة القيادة",
-    icon: "icon-notes",
-    class: "",
-  },
+
   {
     path: "/clientes",
     title: "Clientes",
     rtlTitle: "الرموز",
     icon: "icon-badge",
+    class: "",
+  },
+  {
+    path: "/ventas",
+    title: "Ventas",
+    rtlTitle: "الرموز",
+    icon: "icon-cart",
+    class: "",
+  },
+  {
+    path: "/tablaProductos",
+    title: "Tablas Productos",
+    rtlTitle: "لوحة القيادة",
+    icon: "icon-notes",
     class: "",
   },
   {
@@ -36,7 +44,7 @@ export const ROUTES: RouteInfo[] = [
     icon: "icon-notes",
     class: "",
   },
-  {
+  /* {
     path: "/notifications",
     title: "Notifications",
     rtlTitle: "إخطارات",
@@ -65,7 +73,7 @@ export const ROUTES: RouteInfo[] = [
     rtlTitle: "ار تي ال",
     icon: "icon-world",
     class: "",
-  },
+  }, */
 ];
 
 @Component({

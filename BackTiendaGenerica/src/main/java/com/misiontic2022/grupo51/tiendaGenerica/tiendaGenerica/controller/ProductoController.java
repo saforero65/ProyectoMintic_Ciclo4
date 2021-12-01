@@ -31,14 +31,14 @@ public class ProductoController {
 	ProductoRepository productoRepository;
 
 	@GetMapping("/productos")
-	public ResponseEntity<List<Producto>> getAllProductos(@RequestParam(required = false) String nombreproducto) {
+	public ResponseEntity<List<Producto>> getAllProductos(@RequestParam(required = false) Long codigoproducto) {
 		try {
 			List<Producto> productos = new ArrayList<Producto>();
 
-			if (nombreproducto == null) {
+			if (codigoproducto == null) {
 				productoRepository.findAll().forEach(productos::add);
 			} else {
-				productoRepository.findByNombreproducto(nombreproducto).forEach(productos::add);
+				productoRepository.findByCodigoproducto(codigoproducto).forEach(productos::add);
 			}
 
 			if (productos.isEmpty()) {

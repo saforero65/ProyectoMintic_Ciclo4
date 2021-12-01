@@ -1,0 +1,185 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header mb-8">
+          <h1 class=" card-title">Ventas</h1>
+        </div>
+        <div class=" card-body">
+
+          <div>
+            <div class="col mb-4">
+
+              <!-- Cédula -->
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" id="cedula" class="form-control" [(ngModel)]="cedula" />
+                    <label class="form-label" for="cedula">Cédula</label>
+                  </div>
+                </div>
+                <div class="form-outline">
+                  <input type="submit" class="btn btn-fill" value="Consultar" (click)="getDataCliente()">
+                </div>
+                <!-- Teléfono -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" id="telefono" class="form-control" [(ngModel)]="nombrecompleto" />
+                    <label class="form-label" for="telefono">Cliente</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" id="consecutivo" class="form-control" [(ngModel)]="consecutivo" />
+                    <label class="form-label" for="consecutivo">Consecutivo</label>
+                  </div>
+                </div>
+              </div>
+              <!-- Nombre completo -->
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="number" id="nombrecompleto" class="form-control" [(ngModel)]="codigoproducto" />
+                    <label class="form-label" for="nombrecompleto">Codigo Producto</label>
+                  </div>
+                </div>
+
+                <div class="form-outline">
+                  <input type="submit" class="btn btn-fill" value="Consultar" (click)="getDataProducto1()">
+                </div>
+                <!-- Email -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" id="email" class="form-control" [(ngModel)]="nombreproducto" />
+                    <label class="form-label" for="email">Nombre Producto</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="number" id="email" class="form-control" [(ngModel)]="cantidad"
+                      (change)="calcularTotales()" />
+                    {{cantidad}}
+                    <label class="form-label" for="email">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="number" id="email" class="form-control" [(ngModel)]="valorproducto " />
+                    <label class="form-label" for="email">Valor Total</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="number" id="nombrecompleto" class="form-control" [(ngModel)]="codigoproducto2" />
+                    <label class="form-label" for="nombrecompleto">Codigo Producto</label>
+                  </div>
+                </div>
+
+                <div class="form-outline">
+                  <input type="submit" class="btn btn-fill" value="Consultar" (click)="getDataProducto2()">
+                </div>
+                <!-- Email -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" id="email" class="form-control" [(ngModel)]="nombreproducto2" />
+                    <label class="form-label" for="email">Nombre Producto</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="number" id="email" class="form-control" [(ngModel)]="cantidad2"
+                      (change)="calcularTotales()" />
+                    {{cantidad2}}
+                    <label class="form-label" for="email">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="number" id="email" class="form-control" [(ngModel)]="valorproducto2" />
+                    <label class="form-label" for="email">Valor Total</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="number" id="nombrecompleto" class="form-control" [(ngModel)]="codigoproducto3" />
+                    <label class="form-label" for="nombrecompleto">Codigo Producto</label>
+                  </div>
+                </div>
+
+                <div class="form-outline">
+                  <input type="submit" class="btn btn-fill" value="Consultar" (click)="getDataProducto3()">
+                </div>
+                <!-- Email -->
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" id="email" class="form-control" [(ngModel)]="nombreproducto3" />
+                    <label class="form-label" for="email">Nombre Producto</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="number" id="email" class="form-control" [(ngModel)]="cantidad3"
+                      (change)="calcularTotales()" />
+                    {{cantidad3}}
+                    <label class="form-label" for="email">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="number" id="email" class="form-control" [(ngModel)]="valorproducto3 "
+                      (change)="calcularTotales()" />
+                    <label class="form-label" for="email">Valor Total</label>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <div>
+                <div class="row mb-4">
+
+                  <div class="form-outline">
+                    <input type="number" id="nombrecompleto" class="form-control" [(ngModel)]="totalventa" />
+                    <label class="form-label" for="nombrecompleto">Total Venta </label>
+                  </div>
+
+                </div>
+                <div class="row mb-4">
+
+                  <div class="form-outline">
+                    <input type="number" id="nombrecompleto" class="form-control" [(ngModel)]="totaliva" />
+                    <label class="form-label" for="nombrecompleto">Total IVA</label>
+                  </div>
+
+                </div>
+                <div class="row mb-4">
+
+                  <div class="form-outline">
+                    <input type="number" id="nombrecompleto" class="form-control" [(ngModel)]="totalconiva" />
+                    <label class="form-label" for="nombrecompleto">Total con IVA</label>
+                  </div>
+
+                </div>
+
+
+
+              </div>
+              <input type="submit" class="btn btn-fill" value="Crear" (click)="postData()">
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
