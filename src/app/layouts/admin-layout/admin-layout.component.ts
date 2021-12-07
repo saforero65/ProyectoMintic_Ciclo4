@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-admin-layout",
@@ -8,7 +9,18 @@ import { Component, OnInit } from "@angular/core";
 export class AdminLayoutComponent implements OnInit {
   public sidebarColor: string = "blue";
   dark: boolean = true;
-  constructor() {}
+  state: number = 0;
+  constructor(private router: Router) {
+    router.events.subscribe((val) => {
+      //console.log(this.router.url)
+      //console.log(val)
+      if (this.router.url != "/user") {
+        this.state = 1;
+      } else {
+        this.state = 0;
+      }
+    });
+  }
 
   changeDashboardColor(color) {
     var body = document.getElementsByTagName("body")[0];

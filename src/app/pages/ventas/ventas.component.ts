@@ -12,7 +12,7 @@ export class VentasComponent implements OnInit {
 
   cedula!: number;
   nombrecompleto!: string;
-  consecutivo: number = 1;
+  consecutivo!: number;
 
   codigoproducto!: number;
   codigoproducto2!: number;
@@ -351,5 +351,24 @@ export class VentasComponent implements OnInit {
       // this.reset();
     }
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.res = this.objetohttp.get(
+      "http://localhost:8080/api/ventas/consecutivo",
+      {
+        observe: "response",
+      }
+    );
+
+    this.res.subscribe((data: any) => {
+      console.log("entro a suscribe consecutivo");
+      try {
+        this.consecutivo = data.body + 1;
+
+        // console.log(this.contenido);
+      } catch (error) {
+        console.log("entro a catch error");
+      }
+    });
+    console.log(this.res.subscribe);
+  }
 }
