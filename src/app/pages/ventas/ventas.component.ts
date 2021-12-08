@@ -286,6 +286,9 @@ export class VentasComponent implements OnInit {
           (response) => {
             this.codigorespuesta = response.status;
             console.log("codigo respuesta: " + this.codigorespuesta);
+            if (this.codigorespuesta == 201 || this.codigorespuesta == 200) {
+              this.postConsolidado();
+            }
             this.validar("Post de Cliente");
             // this.reset();
           },
@@ -299,7 +302,20 @@ export class VentasComponent implements OnInit {
       this.validar("Campos vacios de Cliente");
     }
   }
-
+  ciudad: any;
+  postConsolidado() {
+    console.log(this.ciudad);
+    console.log(typeof this.ciudad);
+    this.objetohttp
+      .post(
+        "http://localhost:8080/api/" + "consolidados/agregar/" + this.ciudad,
+        {},
+        { observe: "response" }
+      )
+      .subscribe((response: any) => {
+        console.log(response.status);
+      });
+  }
   validar(mensaje) {
     console.log("entro a validar");
     console.log(this.codigorespuesta);

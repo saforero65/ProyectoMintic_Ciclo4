@@ -4,6 +4,17 @@
       <div class=" card">
         <div class=" card-header mb-8">
           <h1 class=" title">Ventas</h1>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+            <div class="input-group input-group-lg mb-3">
+              <span class="input-group-text" id="basic-addon1">Ciudad</span>
+              <select [(ngModel)]="ciudad">
+                <option selected>Seleccionar .....</option>
+                <option value="1">Bogotá</option>
+                <option value="2">Medellin</option>
+                <option value="3">Cali</option>
+              </select>
+            </div>
+          </div>
         </div>
         <div class=" card-body">
 
