@@ -1,5 +1,22 @@
 <div class=" content">
+
   <div class=" row">
+    <div class=" col-md-8">
+      <div class=" card">
+
+        <div class=" card-body">
+
+          <input type="submit" class="btn btn-fill" value="Listado Cliente" (click)="listadoclientes=true">
+          <input type="submit" class="btn btn-fill" value="Ventas por Cliente" (click)="listarVentas()">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class=" row" *ngIf="listadoclientes">
     <div class=" col-md-8">
       <div class=" card">
         <div class=" card-header">
@@ -36,4 +53,57 @@
     </div>
 
   </div>
+
+
+  <div class=" row" *ngIf="!listadoclientes">
+    <div class=" col-md-8">
+      <div class=" card">
+        <div class=" card-header">
+          <h2 class=" title"> Ventas por Cliente </h2>
+        </div>
+        <div class=" card-body">
+
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Cedula</th>
+                <th>Nombre Completo</th>
+                <th>Total Valor Ventas</th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cliente of arrayventas">
+                <td> {{cliente.cedula}} </td>
+                <td>{{cliente.nombre}}</td>
+                <td>{{cliente.valortotal}}</td>
+
+
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+        <div class="g-col-6 g-col-md-4"></div>
+        <div class="g-col-6 g-col-md-4"></div>
+
+        <div class="form-outline col-md-6 align-self-end">
+          <h5 for="totalventa">Total Venta
+            <input type="number" id="totalventa" class="form-control" [(ngModel)]="totalventa" />
+          </h5>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 </div>
+<style>
+  .card-body {
+    display: flex;
+    justify-content: space-around;
+  }
+</style>

@@ -14,7 +14,7 @@ import { TablasClientesComponent } from "./../../pages/tablas-clientes/tablas-cl
 export const AdminLayoutRoutes: Routes = [
   { path: "tablaProductos", component: DashboardComponent },
   { path: "clientes", component: ClientesComponent },
-  { path: "tablasClientes", component: TablasClientesComponent },
+  { path: "reportes", component: TablasClientesComponent },
   { path: "notifications", component: NotificationsComponent },
   { path: "user", component: UserComponent },
   { path: "productos", component: TablesComponent },

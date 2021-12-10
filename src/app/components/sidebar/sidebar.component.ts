@@ -31,19 +31,20 @@ export const ROUTES: RouteInfo[] = [
     class: "",
   },
   {
+    path: "/reportes",
+    title: "Reportes",
+    rtlTitle: "خرائط",
+    icon: "icon-notes",
+    class: "",
+  },
+  {
     path: "/tablaProductos",
     title: "Tablas Productos",
     rtlTitle: "لوحة القيادة",
     icon: "icon-notes",
     class: "",
   },
-  {
-    path: "/tablasClientes",
-    title: "Tablas Clientes",
-    rtlTitle: "خرائط",
-    icon: "icon-notes",
-    class: "",
-  },
+
   /* {
     path: "/notifications",
     title: "Notifications",
